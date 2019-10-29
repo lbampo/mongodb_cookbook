@@ -1,4 +1,3 @@
-# mongo
+# Mongo
 
-TODO: Enter the cookbook description here.
-
+### This is L-Breezy's MongoDB Cookbook
