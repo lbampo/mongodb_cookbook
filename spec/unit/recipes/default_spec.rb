@@ -36,7 +36,6 @@ describe 'mongo::default' do
     end
 
 
-
     it 'starts mongod service' do
       expect(chef_run).to start_service 'mongod'
     end
@@ -51,6 +50,10 @@ describe 'mongo::default' do
 
     it 'should create mongod.service template in /etc/systemd/system/mongod.service' do
       expect(chef_run).to create_template '/etc/systemd/system/mongod.service'
+    end
+
+    it 'should create mongod.conf template in /etc/mongod.conf with port 27017' do
+      expect(chef_run).to create_template('/etc/mongod.conf').with_variables(port_1: 27017)
     end
   end
 end

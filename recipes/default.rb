@@ -30,6 +30,12 @@ template '/etc/mongod.conf' do
   group 'root'
 end
 
+template '/etc/mongod.conf' do
+  source 'mongod.conf.erb'
+  variables port_1: node['mongod']['port_1']
+  notifies :restart, 'service[mongod]'
+end
+
 
 
 template '/etc/systemd/system/mongod.service' do
